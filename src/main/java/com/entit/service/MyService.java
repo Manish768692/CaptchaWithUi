@@ -14,8 +14,8 @@ public class MyService {
 	@Autowired
 	private MyRepo repo;
 	
-	public void saveDataInDb(Product p) {
-	repo.save(p);
+	public Integer saveDataInDb(Product p) {
+	return repo.save(p).getProductId();
 	}
 
 	public List<Product> getAll() {

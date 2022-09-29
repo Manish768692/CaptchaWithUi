@@ -18,11 +18,5 @@ public class Product {
 	private String ProductName;
 	private String ProductDesc;
 	private String ProductPrice;
-	
-	@Transient
-	private String captcha;
-	@Transient
-	private String hiddenCaptcha;
-	@Transient
-	private String realCaptcha;
+
 }
