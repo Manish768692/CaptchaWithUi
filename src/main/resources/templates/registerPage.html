@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>register</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	<br>
+	<div class="container">
+		<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<h3>Product Register Form</h3>
+			</div>
+			<div class="card-body">
+				<form th:action="@{/product/save}" method="post" th:object="${www}">
+					
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Product
+							Name :</label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" th:field="*{ProductName}" />
+						</div>
+					</div>
+					<br>
+
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">ProductDesc
+							:</label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" th:field="*{ProductDesc}" />
+						</div>
+					</div>
+					<br>
+
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">ProductPrice
+							:</label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control"
+								th:field="*{ProductPrice}" />
+						</div>
+					</div><br>
+					
+					 <div class="form-group row">
+						<label class="col-sm-2 col-form-label">Captcha :</label>
+						<div class="col-sm-6">
+							 <img th:src="*{'data:realCaptcha/jpg;base64,'+ realCaptcha}"/>							 
+						</div>
+					</div><br>
+					
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Enter Captcha :</label>
+						<div class="col-sm-6">
+						<input type="hidden" th:field="*{hiddenCaptcha}"/>
+							<input type="text" th:field="*{captcha}" class="form-control"/>
+						</div>
+					</div><br>
+					<input type="submit" value="Add Product" class="form-control btn btn-success"/>
+				</form>
+			</div>   <!-- Card Body -->
+	<!-- 	<div th:if="${message!=null}" class="card-footer bg-info text-white>
+			<span th:text="${message}"></span>
+			</div> -->
+		</div>
+	</div>
+</body>
+</html>
